@@ -1,0 +1,43 @@
+# MPCL-DTI - pinned GPU environment
+# Target: Ubuntu 20.04 x86_64, Python 3.9.7, NVIDIA driver 535.216.03
+# GPU runtime: PyTorch 2.1.2 with CUDA 12.1 wheels (cu121)
+#
+# The driver reports CUDA 12.2 and is backward-compatible with the cu121
+# runtime bundled in these wheels. A system-wide CUDA toolkit is not required.
+#
+# Install in a fresh virtual environment with:
+#   python -m pip install --upgrade pip
+#   python -m pip install -r requirements.txt
+#
+# The extra package locations below are required for the CUDA-enabled PyTorch,
+# PyG extension, and DGL wheels. Do not remove them or pip may try to build the
+# graph packages from source.
+
+--extra-index-url https://download.pytorch.org/whl/cu121
+--find-links https://data.pyg.org/whl/torch-2.1.2+cu121.html
+--find-links https://data.dgl.ai/wheels/torch-2.1/cu121/repo.html
+
+# Core numerics and data
+numpy==1.26.4
+scipy==1.13.1
+pandas==1.5.3
+scikit-learn==1.2.2
+tqdm==4.66.5
+
+# Deep learning - all compiled extensions match PyTorch 2.1 / CUDA 12.1
+torch==2.1.2+cu121
+torchdata==0.7.1
+torch-geometric==2.6.1
+torch-scatter==2.1.2+pt21cu121
+torch-sparse==0.6.18+pt21cu121
+
+# Graph and molecular featurization
+dgl==2.4.0+cu121
+dgllife==0.3.2
+rdkit==2023.9.6
+
+# Model utilities
+einops==0.4.1
+
+# Plotting (not required by the main run.py pipeline)
+matplotlib==3.9.2
