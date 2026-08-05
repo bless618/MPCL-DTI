@@ -58,7 +58,9 @@ python run.py
 ```
 
 ### test with fewer GCN epochs
+```bash
 python run.py --gcn-epochs 50
+```
 
 ### Results
 Each `run.py` invocation writes a timestamp to `.current_run_timestamp.txt`. Classifier outputs go to `results_<timestamp>/`; Step 6 aggregates them into `final_results.json`.
