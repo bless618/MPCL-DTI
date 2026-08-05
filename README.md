@@ -57,10 +57,10 @@ Run the full pipeline on the default `data/` folder:
 python run.py
 ```
 
-# test with fewer GCN epochs
+### test with fewer GCN epochs
 python run.py --gcn-epochs 50
 
-# Results
+### Results
 Each `run.py` invocation writes a timestamp to `.current_run_timestamp.txt`. Classifier outputs go to `results_<timestamp>/`; Step 6 aggregates them into `final_results.json`.
 
 Use `other data`:
